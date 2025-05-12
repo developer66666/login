@@ -254,9 +254,9 @@ p{
     }
 
 }
-@media(max-width: 480px){
+@media(max-width: 768px){
     .container{
-        width: 95%; /* Increase percentage width for smaller screens */
+        width: 100%; /* Increase percentage width for smaller screens */
         max-width: 310px; /* Adjust max-width */
          height: auto; /* Allow height to adjust based on content */
     }
@@ -304,7 +304,7 @@ p{
     }
 
 }
-@media(max-width:365px){
+@media(max-width:768px){
     .container{
         width: 100%; /* Take full width on very small screens */
         max-width: 280px; /* Adjust max-width */
