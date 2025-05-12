@@ -14,8 +14,9 @@ body{
 
 }
 .container{
-    height: 650px;
-    width: 410px;
+    height: 650px; /* Consider adjusting height or using auto if content varies */
+    width: 90%; /* Use percentage for fluid width */
+    max-width: 410px; /* Set a max-width to prevent it from becoming too wide on larger screens */
     background: #eee;
     border-radius: 15px;
     display: flex;
@@ -24,12 +25,15 @@ body{
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    padding: 20px; /* Add some padding inside the container */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 .Form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%; /* Make the form take the full width of the container */
 
 }
 
@@ -40,11 +44,11 @@ body{
 
 }
 .login-form.active{
-    transform: translateX(-410px);
+    transform: translateX(-410px); /* Adjust if container max-width changes significantly */
 }
 
 .Register-form{
-    transform: translateX(410px);
+    transform: translateX(410px); /* Adjust if container max-width changes significantly */
     transition: .5s ease;
 
 }
@@ -54,23 +58,23 @@ body{
 h2{
     color: #333;
     font-size: 32px;
+    margin-bottom: 20px; /* Add some space below the heading */
 }
 .input-box{
-    margin: 45px 0;
+    margin: 20px 0; /* Adjusted margin */
     height: 40px;
-    width: 300px;
+    width: 100%; /* Make input box take full width */
     border-bottom: 2px solid rgba(0,0,0,.5);
     position: relative;
 }
 .input-box input{
-    width: 90%;
+    width: calc(100% - 30px); /* Adjust input width considering icon and padding */
     height: 100%;
     float: right;
     border: none;
     outline: none;
     font-size: 15px;
     color: rgba(0,0,0,.9);
-
     padding: 5px 0;
     background: transparent;
 }
@@ -92,20 +96,20 @@ h2{
 input::placeholder{
     font-size: 13px;
 }
-input#checked{
-    margin-right: 3px;
+input#rememberMe, input#showPassword{ /* Added showPassword id */
+    margin-right: 5px; /* Adjusted margin */
 }
 .forgot-section{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: -20px;
+    margin-top: -10px; /* Adjusted margin */
+    font-size: 14px; /* Adjusted font size */
 }
 .forgot-section span{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
 }
 .forgot-section span a{
     color: #333;
@@ -201,130 +205,153 @@ p{
 }
 
 
+/* Adjusted Media Queries */
 @media(max-width: 768px){
     .container{
-        height: 500px;
-        width: 380px;
+        width: 90%; /* Maintain percentage width */
+        max-width: 380px; /* Adjust max-width for this breakpoint */
+        height: auto; /* Allow height to adjust based on content */
     }
     h2{
-        font-size: 26px;
+        font-size: 28px; /* Slightly larger heading */
     }
     .input-box{
-        margin: 34px 0;
-        height: 35px;
-        width: 300px;
+        margin: 15px 0; /* Adjusted margin */
+        height: 38px; /* Adjusted height */
     }
     .input-box label{
-        font-size: 13px;
-
+        font-size: 14px; /* Adjusted font size */
     }
     .input-box input{
-        font-size: 13px;
+        font-size: 14px; /* Adjusted font size */
     }
     .input-box i{
-
-        font-size: 18px;
-
+        font-size: 20px; /* Adjusted icon size */
     }
     input::placeholder{
-        font-size: 13px;
+        font-size: 12px; /* Adjusted placeholder font size */
     }
-    .forgot-section span{
-        font-size: 12px;
+    .forgot-section{
+        font-size: 13px; /* Adjusted font size */
     }
-    input#checked{
-        margin-right: 2px;
-        height: 15px;
+    input#rememberMe, input#showPassword{
+        margin-right: 4px;
     }
     .btn{
-        height: 35px;
-        font-size: 15px;
+        height: 38px; /* Adjusted height */
+        font-size: 17px; /* Adjusted font size */
     }
     p{
-        font-size: 11px;
+        font-size: 12px; /* Adjusted font size */
+        margin: 20px 0;
     }
     .social-media i{
-        font-size: 20px;
-
+        font-size: 24px; /* Adjusted icon size */
+        margin-left: 10px;
     }
     .RegisteBtn a{
-        text-decoration: none;
         font-size: 13px;
     }
 
 }
 @media(max-width: 480px){
     .container{
-        height: 450px;
-        width: 310px;
+        width: 95%; /* Increase percentage width for smaller screens */
+        max-width: 310px; /* Adjust max-width */
+         height: auto; /* Allow height to adjust based on content */
     }
     h2{
-        font-size: 22px;
+        font-size: 24px; /* Adjusted heading size */
     }
     .input-box{
-        margin: 20px 0;
-        height: 35px;
-        width: 220px;
+        margin: 15px 0; /* Adjusted margin */
+        height: 35px; /* Adjusted height */
     }
     .input-box label{
-        font-size: 12px;
+        font-size: 13px; /* Adjusted font size */
 
     }
     .input-box input{
-        font-size: 12px;
+        font-size: 13px; /* Adjusted font size */
     }
     .input-box i{
-
-        font-size: 16px;
+        font-size: 18px; /* Adjusted icon size */
 
     }
     input::placeholder{
-        font-size: 10px;
+        font-size: 11px; /* Adjusted placeholder font size */
     }
     .forgot-section span{
-        font-size: 9px;
+        font-size: 11px; /* Adjusted font size */
     }
-    input#checked{
-        margin-right: 2px;
-        height: 10px;
+     input#rememberMe, input#showPassword{
+        margin-right: 3px;
     }
     .btn{
-        height: 25px;
-        font-size: 12px;
+        height: 35px; /* Adjusted height */
+        font-size: 15px; /* Adjusted font size */
     }
     p{
-        font-size: 11px;
+        font-size: 11px; /* Adjusted font size */
+        margin: 15px 0;
     }
     .social-media i{
-        font-size: 18px;
-
+        font-size: 20px; /* Adjusted icon size */
+        margin-left: 8px;
     }
     .RegisteBtn a{
-        text-decoration: none;
-        font-size: 11px;
+        font-size: 12px;
     }
 
 }
 @media(max-width:365px){
     .container{
-        height: 420px;
-        width: 280px;
+        width: 100%; /* Take full width on very small screens */
+        max-width: 280px; /* Adjust max-width */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 15px; /* Adjust padding */
     }
     h2{
-        font-size: 18px;
+        font-size: 20px; /* Adjusted heading size */
     }
     .input-box{
-        margin: 20px 0;
-        height: 35px;
-        width: 200px;
+        margin: 10px 0; /* Adjusted margin */
+        height: 30px; /* Adjusted height */
+    }
+    .input-box label{
+        font-size: 11px; /* Adjusted font size */
+    }
+    .input-box input{
+        font-size: 11px; /* Adjusted font size */
+         width: calc(100% - 25px); /* Adjust input width considering icon and padding */
+    }
+     .input-box i{
+        font-size: 16px; /* Adjusted icon size */
+    }
+     input::placeholder{
+        font-size: 10px; /* Adjusted placeholder font size */
+    }
+     .forgot-section span{
+        font-size: 10px; /* Adjusted font size */
+    }
+     input#rememberMe, input#showPassword{
+        margin-right: 2px;
+     }
+    .btn{
+        height: 30px; /* Adjusted height */
+        font-size: 14px; /* Adjusted font size */
+        margin-top: 15px;
+    }
+     p{
+        font-size: 10px; /* Adjusted font size */
+        margin: 10px 0;
     }
     .social-media i{
-        font-size: 16px;
-
+        font-size: 18px; /* Adjusted icon size */
+        margin-left: 5px;
     }
     .RegisteBtn a{
-        text-decoration: none;
-        font-size: 9px;
+        font-size: 10px;
     }
 
 }
