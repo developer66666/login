@@ -10,64 +10,52 @@
 <body>
     <div class="container">
         <div class="Form login-form">
-        <h2>Login</h2>
-        <form action="#" id="loginForm">
-            <div class="input-box">
-                <i class='bx bxs-user'></i>
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter Your Username*">
+            <h2>Login</h2>
+            <form action="#" id="loginForm">
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" id="username" placeholder="Enter Your Username*">
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock'></i>
+                    <input type="password" id="password" placeholder="Enter Your Password*">
+                </div>
+                <div class="forgot-section">
+                    <span><input type="checkbox" id="rememberMe"> Remember</span>
+                    <span><input type="checkbox" id="showPassword"> Show Password</span>
+                </div>
+                <button class="btn" type="submit">Login</button>
+            </form>
+            <p>Or Login using</p>
+            <div class="social-media">
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-google'></i>
+                <i class='bx bxl-twitter'></i>
             </div>
-            <div class="input-box">
-                <i class='bx bxs-lock' ></i>
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter Your Password*">
-            </div>
-            <div class="forgot-section">
-                <span><input type="checkbox" name="" id="rememberMe">Remember</span>&nbsp&nbsp&nbsp&nbsp
-                <span><input type="checkbox" name="" id="showPassword">Show Password</span>
-            </div>
-            <button class="btn" type="submit">Login</button>
-        </form>
-        <p>Or Login using</p>
-        <div class="social-media">
-            <i class='bx bxl-facebook'></i>
-            <i class='bx bxl-google'></i>
-            <i class='bx bxl-twitter'></i>
-        </div>
         </div>
     </div>
-<script>
-    const loginActualForm = document.getElementById('loginForm'); // Get the actual form element
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const showPasswordCheckbox = document.getElementById('showPassword');
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const passwordInput = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('showPassword');
 
-    // Basic client-side authentication check (NOT SECURE)
-    loginActualForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the form from submitting normally
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const defaultUsername = 'Ganesh';
+            const defaultPassword = 'Vasudeva$555';
+            const enteredUsername = document.getElementById('username').value;
+            const enteredPassword = passwordInput.value;
 
-        const defaultUsername = 'Ganesh'; // Your default username
-        const defaultPassword = 'Vasudeva$555'; // Your default password
+            if (enteredUsername === defaultUsername && enteredPassword === defaultPassword) {
+                window.location.href = 'homepage.html';
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
 
-        const enteredUsername = usernameInput.value;
-        const enteredPassword = passwordInput.value;
-
-        if (enteredUsername === defaultUsername && enteredPassword === defaultPassword) {
-            // Redirect to your homepage on successful login
-            window.location.href = 'homepage.html'; // <-- Change 'homepage.html' to the actual name of your homepage file
-        } else {
-            alert('Invalid username or password.'); // Keep the alert for failure
-        }
-    });
-
-    // Add event listener for the show password checkbox
-    showPasswordCheckbox.addEventListener('change', () => {
-        if (showPasswordCheckbox.checked) {
-            passwordInput.type = 'text';
-        } else {
-            passwordInput.type = 'password';
-        }
-    });
-</script>
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
+    </script>
 </body>
 </html>
